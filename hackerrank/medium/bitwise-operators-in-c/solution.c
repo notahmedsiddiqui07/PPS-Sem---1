@@ -2,24 +2,42 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+//Complete the following function.
+
+
 void calculate_the_maximum(int n, int k) {
-  int maxA = 0, maxB = 0, maxC = 0;
+  //Write your code here.
+int maxAND = 0;
+int maxOr = 0;
+int maxXor = 0;
+
+for (int a = 1; a <= n; a++)
+{ 
+    for (int b = a + 1; b <= n; b++)
+    {
+    int andResult = a & b;
+    int orResult = a | b;
+    int xorResult = a ^ b;
     
-    for (int a = 1; a <=n; a++) {
-       for (int b = a + 1; b <= n; b++){
-            int x = a & b;
-            int y = a | b;
-            int z = a ^ b;
-            
-                if (x < k && x > maxA) maxA = x;
-                if (y < k && y > maxB) maxB = y;
-                if (z < k && z > maxC) maxC = z;
-       }
+    if (andResult < k && andResult > maxAND)
+    {
+        maxAND = andResult;
     }
-    printf("%d\n%d\n%d\n", maxA, maxB, maxC);
+    if (orResult < k && orResult > maxOr)
+    {
+        maxOr = orResult;
+    }
+    if ( xorResult < k && xorResult > maxXor)
+    {
+        maxXor = xorResult;
+    }
+}
 }
 
-
+printf("%d\n", maxAND);
+printf("%d\n", maxOr);
+printf("%d", maxXor);
+}
 int main() {
     int n, k;
   
