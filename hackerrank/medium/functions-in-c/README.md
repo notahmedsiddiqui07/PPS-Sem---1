@@ -1,4 +1,4 @@
-# Sum and Difference of Two Numbers
+# Functions in C
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -63,28 +63,33 @@ Note: I/O will be automatically handled.
 **Language:** C  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-08T10:23:50.719Z  
+**Submitted:** 2026-10-08T10:24:57.195Z  
 
 ```c
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
-
-int main()
+/*
+Add `int max_of_four(int a, int b, int c, int d)` here.
+*/
+int max_of_four(int a, int b, int c, int d)
 {
-	int n1, n2, sum1, difference1;
-float n3, n4, difference2, sum2;
-scanf("%d %d", &n1, &n2);
-scanf("%f %f", &n3, &n4);
-sum1 = n1 + n2;
-difference1 = n1 - n2;
-sum2 = n3 + n4;
-difference2 = n3 - n4;
-printf("%d %d\n", sum1, difference1);
-printf("%.1f %.1f", sum2, difference2);
-
+    int greatest = a;
     
+    if (b > greatest)
+        greatest = b;
+    if ( c > greatest)
+        greatest = c;
+    if (d > greatest)
+        greatest = d;
+    return greatest;
+    
+}
+int main() {
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+   
+    printf("%d", ans);
+
     return 0;
 }
 
